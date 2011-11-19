@@ -15,8 +15,6 @@
 */   
 package de.mindpipe.android.logging.log4j;
 
-import static org.junit.Assert.fail;
-
 import org.junit.Test;
 
 /**
@@ -26,8 +24,9 @@ import org.junit.Test;
 public class LogConfiguratorTest {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testConfigure() {
+		final LogConfigurator logConfigurator = new LogConfigurator();
+		logConfigurator.configure();
 	}
 
 }
