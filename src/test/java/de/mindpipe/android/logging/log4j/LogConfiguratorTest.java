@@ -15,6 +15,7 @@
 */   
 package de.mindpipe.android.logging.log4j;
 
+import org.apache.log4j.Logger;
 import org.junit.Test;
 
 /**
@@ -26,7 +27,11 @@ public class LogConfiguratorTest {
 	@Test
 	public void testConfigure() {
 		final LogConfigurator logConfigurator = new LogConfigurator();
+		final Logger log = Logger.getLogger(LogConfiguratorTest.class);
+		
 		logConfigurator.configure();
+		//logConfigurator.setFileName(Environment.getExternalStorageDirectory() + "myapp.log");
+		//log.info("This message should be seen in log file an logcat");
 	}
 
 }
