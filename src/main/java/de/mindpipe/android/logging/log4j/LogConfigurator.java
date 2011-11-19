@@ -38,6 +38,8 @@ public class LogConfigurator {
 	private int maxBackupSize = 5;
 	private long maxFileSize = 512 * 1024;
 	private boolean immediateFlush = false;
+	private boolean useLogCatAppender = true;
+	private boolean useFileAppender = true;
 
 	public LogConfigurator() {
 	}
@@ -67,11 +69,22 @@ public class LogConfigurator {
 
 	public void configure() {
 		final Logger root = Logger.getRootLogger();
+		
+		if(isUseFileAppender()) {
+			configureFileAppender();
+		}
+		
+		if(isUseLogCatAppender()) {
+			configureLogCatAppender();
+		}
+		
+		root.setLevel(getLevel());
+	}
+
+	private void configureFileAppender() {
+		final Logger root = Logger.getRootLogger();
 		final RollingFileAppender rollingFileAppender;
 		final Layout fileLayout = new PatternLayout(getFilePattern());
-		final Layout logCatLayout = new PatternLayout(getLogCatPattern());
-		// final ConsoleAppender consoleAppender = new ConsoleAppender(fileLayout);
-		final LogCatAppender logCatAppender = new LogCatAppender(logCatLayout);
 
 		try {
 			rollingFileAppender = new RollingFileAppender(fileLayout, getFileName());
@@ -83,12 +96,18 @@ public class LogConfigurator {
 		rollingFileAppender.setMaximumFileSize(getMaxFileSize());
 		rollingFileAppender.setImmediateFlush(isImmediateFlush());
 
-		// root.addAppender(consoleAppender);
-		root.addAppender(logCatAppender);
 		root.addAppender(rollingFileAppender);
 		root.setLevel(getLevel());
 	}
+	
+	private void configureLogCatAppender() {
+		final Logger root = Logger.getRootLogger();
+		final Layout logCatLayout = new PatternLayout(getLogCatPattern());
+		final LogCatAppender logCatAppender = new LogCatAppender(logCatLayout);
 
+		root.addAppender(logCatAppender);
+	}
+	
 	public Level getLevel() {
 		return level;
 	}
@@ -143,5 +162,33 @@ public class LogConfigurator {
 
 	public void setImmediateFlush(final boolean immediateFlush) {
 		this.immediateFlush = immediateFlush;
+	}
+
+	/**
+	 * @return the useFileAppender
+	 */
+	public boolean isUseFileAppender() {
+		return useFileAppender;
+	}
+
+	/**
+	 * @param useFileAppender the useFileAppender to set
+	 */
+	public void setUseFileAppender(final boolean useFileAppender) {
+		this.useFileAppender = useFileAppender;
+	}
+
+	/**
+	 * @return the useLogCatAppender
+	 */
+	public boolean isUseLogCatAppender() {
+		return useLogCatAppender;
+	}
+
+	/**
+	 * @param useLogCatAppender the useLogCatAppender to set
+	 */
+	public void setUseLogCatAppender(final boolean useLogCatAppender) {
+		this.useLogCatAppender = useLogCatAppender;
 	}
 }
