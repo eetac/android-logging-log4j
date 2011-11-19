@@ -28,7 +28,7 @@ import org.apache.log4j.RollingFileAppender;
  * "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/PatternLayout.html"
  * >Patterns</a> for pattern layout.
  *
- * @author Rolf Kulemann
+ * @author Rolf Kulemann, Pascal Bockhorn
  */
 public class LogConfigurator {
 	private Level level = Level.DEBUG;
