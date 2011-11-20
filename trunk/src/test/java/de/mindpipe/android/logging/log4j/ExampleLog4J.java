@@ -1,5 +1,5 @@
 /* 
-   Copyright 2011 Rolf Kulemann, Pascal Bockhorn
+   Copyright 2011 Rolf Kulemann
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ import org.apache.log4j.Logger;
 import android.os.Environment;
 
 /**
+ * Demonstrated configuring and using log4j directly.
  * @author Rolf Kulemann
  */
 public class ExampleLog4J {

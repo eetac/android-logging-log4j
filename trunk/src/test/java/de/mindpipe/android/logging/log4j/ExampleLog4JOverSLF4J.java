@@ -1,5 +1,5 @@
 /* 
-   Copyright 2011 Rolf Kulemann, Pascal Bockhorn
+   Copyright 2011 Rolf Kulemann
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ import org.slf4j.LoggerFactory;
 import android.os.Environment;
 
 /**
+ * Demonstrates configuring log4j and using log4j over slf4j.
  * @author Rolf Kulemann
  */
 public class ExampleLog4JOverSLF4J {
