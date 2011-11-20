@@ -26,7 +26,7 @@ import android.util.Log;
 /**
  * Adds an Android specific LogAppender.
  * 
- * @author Pascal Bockhorn
+ * @author Rolf Kulemann, Pascal Bockhorn
  */
 public class LogCatAppender extends AppenderSkeleton {
 	
