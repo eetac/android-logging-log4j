@@ -24,9 +24,8 @@ import org.apache.log4j.PatternLayout;
 import org.apache.log4j.RollingFileAppender;
 
 /**
- * Configures the Log4j logging framework. See <a href=
- * "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/PatternLayout.html"
- * >Patterns</a> for pattern layout.
+ * Configures the Log4j logging framework. 
+ * See <a href="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/PatternLayout.html">Patterns</a> for pattern layout.
  *
  * @author Rolf Kulemann
  */
