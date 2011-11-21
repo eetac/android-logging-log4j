@@ -9,7 +9,7 @@
 
   <groupId>de.mindpipe.android</groupId>
   <artifactId>android-logging-log4j</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>jar</packaging>
 
   <name>android-logging-log4j</name>

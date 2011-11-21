@@ -34,7 +34,7 @@ public class LogConfigurator {
 	private Level level = Level.DEBUG;
 	private String filePattern = "%d - [%p::%c::%C] - %m%n";
 	private String logCatPattern = "%m%n";
-	private String fileName = "sybase.log";
+	private String fileName = "android-log4j.log";
 	private int maxBackupSize = 5;
 	private long maxFileSize = 512 * 1024;
 	private boolean immediateFlush = false;
