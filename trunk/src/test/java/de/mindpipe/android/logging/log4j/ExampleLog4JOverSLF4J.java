@@ -35,6 +35,6 @@ public class ExampleLog4JOverSLF4J {
 	}
 	
 	public void myMethod() {
-		log.info("This message should be seen in log file an logcat");
+		log.info("This message should be seen in log file and logcat");
 	}
 }
