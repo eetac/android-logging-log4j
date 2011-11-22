@@ -44,7 +44,7 @@ public class LogConfiguratorTest {
 		final String message = "This message should be seen in log file an logcat";
 		final String messageNot = "This message should NOT be seen in log file an logcat";
 		
-		// deactivate LogCatAppender, since otherwise we get exception while logging
+		// deactivate LogCatAppender, since otherwise we get exception while logging in a non Android environment
 		logConfigurator.setUseLogCatAppender(false);
 		logConfigurator.setImmediateFlush(true);
 		logConfigurator.configure();
