@@ -15,6 +15,7 @@
 */   
 package de.mindpipe.android.logging.log4j;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 
@@ -32,6 +33,8 @@ public class LogConfiguratorTest {
 		logConfigurator.setUseLogCatAppender(false);
 		logConfigurator.setImmediateFlush(true);
 		logConfigurator.configure();
+		
+		logConfigurator.setLevel("de.mindpipe", Level.TRACE);
 		//logConfigurator.setFileName(Environment.getExternalStorageDirectory() + "myapp.log");
 		log.info("This message should be seen in log file an logcat");
 	}
