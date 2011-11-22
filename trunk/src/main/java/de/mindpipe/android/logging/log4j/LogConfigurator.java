@@ -96,7 +96,6 @@ public class LogConfigurator {
 		rollingFileAppender.setImmediateFlush(isImmediateFlush());
 
 		root.addAppender(rollingFileAppender);
-		root.setLevel(getLevel());
 	}
 	
 	private void configureLogCatAppender() {
