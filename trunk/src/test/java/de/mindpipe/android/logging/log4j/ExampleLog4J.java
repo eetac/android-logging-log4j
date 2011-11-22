@@ -31,8 +31,8 @@ public class ExampleLog4J {
 	static {
 		final LogConfigurator logConfigurator = new LogConfigurator();
 		
-		logConfigurator.configure();
 		logConfigurator.setFileName(Environment.getExternalStorageDirectory() + "myapp.log");
+		logConfigurator.configure();
 	}
 	
 	public void myMethod() {
