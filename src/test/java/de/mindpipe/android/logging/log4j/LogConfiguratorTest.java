@@ -41,8 +41,8 @@ public class LogConfiguratorTest {
 	@Test
 	public void testConfigure() {
 		final Logger log = Logger.getLogger(LogConfiguratorTest.class);
-		final String message = "This message should be seen in log file an logcat";
-		final String messageNot = "This message should NOT be seen in log file an logcat";
+		final String message = "This message should be seen in log file and logcat";
+		final String messageNot = "This message should NOT be seen in log file and logcat";
 		
 		// deactivate LogCatAppender, since otherwise we get exception while logging in a non Android environment
 		logConfigurator.setUseLogCatAppender(false);
