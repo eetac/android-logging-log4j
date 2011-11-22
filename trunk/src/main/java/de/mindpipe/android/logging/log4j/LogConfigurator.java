@@ -43,25 +43,43 @@ public class LogConfigurator {
 	public LogConfigurator() {
 	}
 
+	/**
+	 * @param fileName Name of the log file
+	 */
 	public LogConfigurator(final String fileName) {
 		setFileName(fileName);
 	}
 
+	/**
+	 * @param fileName  Name of the log file
+	 * @param rootLevel Log level for the root logger
+	 */
 	public LogConfigurator(final String fileName, final Level rootLevel) {
 		this(fileName);
 		setRootLevel(rootLevel);
 	}
 
-	public LogConfigurator(final String fileName, final Level rootLevel,
-			final String pattern) {
+	/**
+	 * @param fileName Name of the log file
+	 * @param rootLevel Log level for the root logger
+	 * @param filePattern Log pattern for the file appender
+	 */
+	public LogConfigurator(final String fileName, final Level rootLevel, final String filePattern) {
 		this(fileName);
 		setRootLevel(rootLevel);
-		setFilePattern(pattern);
+		setFilePattern(filePattern);
 	}
 
+	/**
+	 * @param fileName Name of the log file
+	 * @param maxBackupSize Maximum number of backed up log files
+	 * @param maxFileSize Maximum size of log file until rolling
+	 * @param filePattern  Log pattern for the file appender
+	 * @param rootLevel Log level for the root logger
+	 */
 	public LogConfigurator(final String fileName, final int maxBackupSize,
-			final long maxFileSize, final String pattern, final Level rootLevel) {
-		this(fileName, rootLevel, pattern);
+			final long maxFileSize, final String filePattern, final Level rootLevel) {
+		this(fileName, rootLevel, filePattern);
 		setMaxBackupSize(maxBackupSize);
 		setMaxFileSize(maxFileSize);
 	}
@@ -116,10 +134,18 @@ public class LogConfigurator {
 		root.addAppender(logCatAppender);
 	}
 	
+	/**
+	 * Return the log level of the root logger
+	 * @return Log level of the root logger
+	 */
 	public Level getRootLevel() {
 		return rootLevel;
 	}
 
+	/**
+	 * Sets log level for the root logger
+	 * @param level Log level for the root logger
+	 */
 	public void setRootLevel(final Level level) {
 		this.rootLevel = level;
 	}
@@ -140,26 +166,50 @@ public class LogConfigurator {
 		this.logCatPattern = logCatPattern;
 	}
 
+	/**
+	 * Returns the name of the log file
+	 * @return the name of the log file
+	 */
 	public String getFileName() {
 		return fileName;
 	}
 
+	/**
+	 * Sets the name of the log file
+	 * @param fileName Name of the log file
+	 */
 	public void setFileName(final String fileName) {
 		this.fileName = fileName;
 	}
 
+	/**
+	 * Returns the maximum number of backed up log files
+	 * @return Maximum number of backed up log files
+	 */
 	public int getMaxBackupSize() {
 		return maxBackupSize;
 	}
 
+	/**
+	 * Sets the maximum number of backed up log files
+	 * @param maxBackupSize Maximum number of backed up log files
+	 */
 	public void setMaxBackupSize(final int maxBackupSize) {
 		this.maxBackupSize = maxBackupSize;
 	}
 
+	/**
+	 * Returns the maximum size of log file until rolling
+	 * @return Maximum size of log file until rolling
+	 */
 	public long getMaxFileSize() {
 		return maxFileSize;
 	}
 
+	/**
+	 * Sets the maximum size of log file until rolling
+	 * @param maxFileSize Maximum size of log file until rolling
+	 */
 	public void setMaxFileSize(final long maxFileSize) {
 		this.maxFileSize = maxFileSize;
 	}
@@ -173,7 +223,8 @@ public class LogConfigurator {
 	}
 
 	/**
-	 * @return the useFileAppender
+	 * Returns true, if FileAppender is used for logging
+	 * @return True, if FileAppender is used for logging
 	 */
 	public boolean isUseFileAppender() {
 		return useFileAppender;
@@ -187,14 +238,16 @@ public class LogConfigurator {
 	}
 
 	/**
-	 * @return the useLogCatAppender
+	 * Returns true, if LogcatAppender should be used
+	 * @return True, if LogcatAppender should be used
 	 */
 	public boolean isUseLogCatAppender() {
 		return useLogCatAppender;
 	}
 
 	/**
-	 * @param useLogCatAppender the useLogCatAppender to set
+	 * If set to true, LogCatAppender will be used for logging
+	 * @param useLogCatAppender If true, LogCatAppender will be used for logging
 	 */
 	public void setUseLogCatAppender(final boolean useLogCatAppender) {
 		this.useLogCatAppender = useLogCatAppender;

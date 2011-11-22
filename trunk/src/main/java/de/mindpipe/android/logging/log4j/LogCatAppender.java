@@ -24,8 +24,7 @@ import org.apache.log4j.spi.LoggingEvent;
 import android.util.Log;
 
 /**
- * Adds an Android specific LogAppender.
- * 
+ * Appender for {@link Log}
  * @author Rolf Kulemann, Pascal Bockhorn
  */
 public class LogCatAppender extends AppenderSkeleton {
