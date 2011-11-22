@@ -52,6 +52,7 @@ public class LogConfiguratorTest {
 		logConfigurator.setLevel("de.mindpipe", Level.TRACE);
 		log.info(message);
 		
+		assertLogFileExists();
 		assertLogContains(message);
 		
 		logConfigurator.setLevel("de.mindpipe", Level.ERROR);
@@ -59,6 +60,10 @@ public class LogConfiguratorTest {
 		assertLogNotContains(messageNot);
 	}
 
+	private void assertLogFileExists() {
+		assertTrue(new File(logConfigurator.getFileName()).exists());
+	}
+	
 	private void assertLogContains(final String string) {
 		final String logFileContents = logFileToString();
 		assertTrue(logFileContents.contains(string));
