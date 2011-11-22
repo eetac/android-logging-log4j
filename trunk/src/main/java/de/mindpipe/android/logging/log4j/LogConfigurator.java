@@ -36,7 +36,7 @@ public class LogConfigurator {
 	private String fileName = "android-log4j.log";
 	private int maxBackupSize = 5;
 	private long maxFileSize = 512 * 1024;
-	private boolean immediateFlush = false;
+	private boolean immediateFlush = true;
 	private boolean useLogCatAppender = true;
 	private boolean useFileAppender = true;
 
