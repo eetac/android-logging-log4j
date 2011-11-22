@@ -15,8 +15,15 @@
 */   
 package de.mindpipe.android.logging.log4j;
 
+import static org.junit.Assert.*;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -24,19 +31,53 @@ import org.junit.Test;
  *
  */
 public class LogConfiguratorTest {
-
+	private LogConfigurator logConfigurator;
+	
+	@Before
+	public void setUp() {
+		logConfigurator = new LogConfigurator();
+	}
+	
 	@Test
 	public void testConfigure() {
-		final LogConfigurator logConfigurator = new LogConfigurator();
 		final Logger log = Logger.getLogger(LogConfiguratorTest.class);
+		final String message = "This message should be seen in log file an logcat";
+		final String messageNot = "This message should NOT be seen in log file an logcat";
 		
+		// deactivate LogCatAppender, since otherwise we get exception while logging
 		logConfigurator.setUseLogCatAppender(false);
 		logConfigurator.setImmediateFlush(true);
 		logConfigurator.configure();
 		
 		logConfigurator.setLevel("de.mindpipe", Level.TRACE);
-		//logConfigurator.setFileName(Environment.getExternalStorageDirectory() + "myapp.log");
-		log.info("This message should be seen in log file an logcat");
+		log.info(message);
+		
+		assertLogContains(message);
+		
+		logConfigurator.setLevel("de.mindpipe", Level.ERROR);
+		log.info(messageNot);
+		assertLogNotContains(messageNot);
 	}
 
+	private void assertLogContains(final String string) {
+		final String logFileContents = logFileToString();
+		assertTrue(logFileContents.contains(string));
+	}
+	
+	private void assertLogNotContains(final String string) {
+		final String logFileContents = logFileToString();
+		assertFalse(logFileContents.contains(string));
+	}
+	
+	private String logFileToString() {
+		final String logFileContents;
+		
+		try {
+			logFileContents = FileUtils.readFileToString(new File(logConfigurator.getFileName()));
+		} catch (final IOException e) {
+			throw new RuntimeException(e);
+		}
+		
+		return logFileContents;
+	}
 }
