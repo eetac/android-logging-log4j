@@ -30,7 +30,7 @@ import org.apache.log4j.RollingFileAppender;
  * @author Rolf Kulemann
  */
 public class LogConfigurator {
-	private Level level = Level.DEBUG;
+	private Level rootLevel = Level.DEBUG;
 	private String filePattern = "%d - [%p::%c::%C] - %m%n";
 	private String logCatPattern = "%m%n";
 	private String fileName = "android-log4j.log";
@@ -47,21 +47,21 @@ public class LogConfigurator {
 		setFileName(fileName);
 	}
 
-	public LogConfigurator(final String fileName, final Level level) {
+	public LogConfigurator(final String fileName, final Level rootLevel) {
 		this(fileName);
-		setLevel(level);
+		setRootLevel(rootLevel);
 	}
 
-	public LogConfigurator(final String fileName, final Level level,
+	public LogConfigurator(final String fileName, final Level rootLevel,
 			final String pattern) {
 		this(fileName);
-		setLevel(level);
+		setRootLevel(rootLevel);
 		setFilePattern(pattern);
 	}
 
 	public LogConfigurator(final String fileName, final int maxBackupSize,
-			final long maxFileSize, final String pattern, final Level level) {
-		this(fileName, level, pattern);
+			final long maxFileSize, final String pattern, final Level rootLevel) {
+		this(fileName, rootLevel, pattern);
 		setMaxBackupSize(maxBackupSize);
 		setMaxFileSize(maxFileSize);
 	}
@@ -77,7 +77,17 @@ public class LogConfigurator {
 			configureLogCatAppender();
 		}
 		
-		root.setLevel(getLevel());
+		root.setLevel(getRootLevel());
+	}
+	
+	/**
+	 * Sets the level of logger with name <code>loggerName</code>.
+	 * Corresponds to log4j.properties <code>log4j.logger.org.apache.what.ever=ERROR</code>
+	 * @param loggerName
+	 * @param level
+	 */
+	public void setLevel(final String loggerName, final Level level) {
+		Logger.getLogger(loggerName).setLevel(level);
 	}
 
 	private void configureFileAppender() {
@@ -106,12 +116,12 @@ public class LogConfigurator {
 		root.addAppender(logCatAppender);
 	}
 	
-	public Level getLevel() {
-		return level;
+	public Level getRootLevel() {
+		return rootLevel;
 	}
 
-	public void setLevel(final Level level) {
-		this.level = level;
+	public void setRootLevel(final Level level) {
+		this.rootLevel = level;
 	}
 
 	public String getFilePattern() {
