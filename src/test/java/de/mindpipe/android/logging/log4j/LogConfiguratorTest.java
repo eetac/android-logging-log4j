@@ -29,9 +29,11 @@ public class LogConfiguratorTest {
 		final LogConfigurator logConfigurator = new LogConfigurator();
 		final Logger log = Logger.getLogger(LogConfiguratorTest.class);
 		
+		logConfigurator.setUseLogCatAppender(false);
+		logConfigurator.setImmediateFlush(true);
 		logConfigurator.configure();
 		//logConfigurator.setFileName(Environment.getExternalStorageDirectory() + "myapp.log");
-		//log.info("This message should be seen in log file an logcat");
+		log.info("This message should be seen in log file an logcat");
 	}
 
 }
