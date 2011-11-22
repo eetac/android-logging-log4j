@@ -24,7 +24,7 @@
 
   <groupId>de.mindpipe.android</groupId>
   <artifactId>android-logging-log4j</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>android-logging-log4j</name>
@@ -69,9 +69,9 @@
   </licenses>
   
   <scm>
-    <connection>scm:svn:https://android-logging-log4j.googlecode.com/svn/tags/android-logging-log4j-1.0.1</connection>
-    <developerConnection>scm:svn:https://android-logging-log4j.googlecode.com/svn/tags/android-logging-log4j-1.0.1</developerConnection>
-    <url>http://svn.sonatype.org/spice/tags/android-logging-log4j-1.0.1</url>
+    <connection>scm:svn:https://android-logging-log4j.googlecode.com/svn/trunk/</connection>
+    <developerConnection>scm:svn:https://android-logging-log4j.googlecode.com/svn/trunk/</developerConnection>
+    <url>http://svn.sonatype.org/spice/tags/oss-parent-7/android-logging-log4j</url>
   </scm>
   
   <!-- 
