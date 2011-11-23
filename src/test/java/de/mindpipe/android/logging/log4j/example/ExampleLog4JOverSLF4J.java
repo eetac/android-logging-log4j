@@ -19,7 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Demonstrates configuring log4j and using log4j over slf4j.
+ * Demonstrates using log4j over slf4j.
  * @author Rolf Kulemann
  */
 public class ExampleLog4JOverSLF4J {
