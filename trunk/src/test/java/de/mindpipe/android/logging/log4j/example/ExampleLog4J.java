@@ -20,7 +20,7 @@ package de.mindpipe.android.logging.log4j.example;
 import org.apache.log4j.Logger;
 
 /**
- * Demonstrated configuring and using log4j directly.
+ * Demonstrates using log4j directly.
  * @author Rolf Kulemann
  */
 public class ExampleLog4J {
