@@ -13,26 +13,18 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */  
-package de.mindpipe.android.logging.log4j;
+package de.mindpipe.android.logging.log4j.example;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import android.os.Environment;
+
+import org.apache.log4j.Logger;
 
 /**
- * Demonstrates configuring log4j and using log4j over slf4j.
+ * Demonstrated configuring and using log4j directly.
  * @author Rolf Kulemann
  */
-public class ExampleLog4JOverSLF4J {
-	private final Logger log = LoggerFactory.getLogger(ExampleLog4JOverSLF4J.class);
-	
-	static {
-		final LogConfigurator logConfigurator = new LogConfigurator();
-		
-		logConfigurator.setFileName(Environment.getExternalStorageDirectory() + "myapp.log");
-		logConfigurator.configure();
-	}
+public class ExampleLog4J {
+	private final Logger log = Logger.getLogger(ExampleLog4J.class);
 	
 	public void myMethod() {
 		log.info("This message should be seen in log file and logcat");
