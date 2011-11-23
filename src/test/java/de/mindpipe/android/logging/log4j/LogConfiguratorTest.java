@@ -47,9 +47,9 @@ public class LogConfiguratorTest {
 		// deactivate LogCatAppender, since otherwise we get exception while logging in a non Android environment
 		logConfigurator.setUseLogCatAppender(false);
 		logConfigurator.setImmediateFlush(true);
+		logConfigurator.setLevel("de.mindpipe", Level.TRACE);
 		logConfigurator.configure();
 		
-		logConfigurator.setLevel("de.mindpipe", Level.TRACE);
 		log.info(message);
 		
 		assertLogFileExists();

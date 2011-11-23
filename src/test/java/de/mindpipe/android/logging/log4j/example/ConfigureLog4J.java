@@ -13,29 +13,27 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */  
-package de.mindpipe.android.logging.log4j;
+package de.mindpipe.android.logging.log4j.example;
 
-
-
-import org.apache.log4j.Logger;
+import org.apache.log4j.Level;
 
 import android.os.Environment;
+import de.mindpipe.android.logging.log4j.LogConfigurator;
 
 /**
- * Demonstrated configuring and using log4j directly.
+ * Example how to to configure Log4J in Android.
+ * Simply place a class like this in your Android applications classpath.
  * @author Rolf Kulemann
  */
-public class ExampleLog4J {
-	private final Logger log = Logger.getLogger(ExampleLog4J.class);
-	
+public class ConfigureLog4J {
 	static {
 		final LogConfigurator logConfigurator = new LogConfigurator();
 		
 		logConfigurator.setFileName(Environment.getExternalStorageDirectory() + "myapp.log");
+		// Set the root log level
+		logConfigurator.setRootLevel(Level.DEBUG);
+		// Set log level of a specific logger
+		logConfigurator.setLevel("org.apache", Level.ERROR);
 		logConfigurator.configure();
-	}
-	
-	public void myMethod() {
-		log.info("This message should be seen in log file and logcat");
 	}
 }
