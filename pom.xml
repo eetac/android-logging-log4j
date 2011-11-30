@@ -44,7 +44,6 @@
     <developer>
       <id>roku</id>
       <name>Rolf Kulemann</name>
-      <email>rolf.kulemann...gmail.com</email>
       <url>https://www.xing.com/profile/Rolf_Kulemann</url>
       <roles>
         <role>architect</role>
@@ -54,7 +53,6 @@
     <developer>
       <id>pabo</id>
       <name>Pascal Bockhorn</name>
-      <email>pascalbockhorn...hotmail.com </email>
       <roles>
         <role>developer</role>
       </roles>
