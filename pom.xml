@@ -30,7 +30,7 @@
   <name>android-logging-log4j</name>
   <url>http://code.google.com/p/android-logging-log4j/</url>
   
-  <description>Provides Log4J configuration facade class and a LogCat appender</description>
+  <description>Logging with log4j in Android. Provides log4j configuration facade class and a LogCat appender.</description>
 
   <issueManagement>
     <url>http://code.google.com/p/android-logging-log4j/issues/</url>
