@@ -33,7 +33,7 @@ public class LogCatAppender extends AppenderSkeleton {
 
 	public LogCatAppender(final Layout messageLayout, final Layout tagLayout) {
 		this.tagLayout = tagLayout;
-		setLayout(messageLayout);
+		setLayout(messageLayout); 
 	}
 
 	public LogCatAppender(final Layout messageLayout) {
