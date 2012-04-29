@@ -26,7 +26,7 @@ import de.mindpipe.android.logging.log4j.LogConfigurator;
  * @author Rolf Kulemann
  */
 public class ConfigureLog4J {
-	static {
+	public static void configure() {
 		final LogConfigurator logConfigurator = new LogConfigurator();
 		
 		logConfigurator.setFileName(Environment.getExternalStorageDirectory() + "myapp.log");
