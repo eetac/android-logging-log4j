@@ -22,7 +22,7 @@ import de.mindpipe.android.logging.log4j.LogConfigurator;
 
 /**
  * Example how to to configure Log4J in Android.
- * Simply place a class like this in your Android applications classpath.
+ * Call {@link #configure()}} from your application's activity.
  * @author Rolf Kulemann
  */
 public class ConfigureLog4J {
