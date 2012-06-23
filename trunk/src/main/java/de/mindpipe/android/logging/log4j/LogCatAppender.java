@@ -48,40 +48,52 @@ public class LogCatAppender extends AppenderSkeleton {
 	protected void append(final LoggingEvent le) {
 		switch (le.getLevel().toInt()) {
 		case Level.TRACE_INT:
-			if (le.getThrowableInformation() != null)
+			if (le.getThrowableInformation() != null) {
 				Log.v(getTagLayout().format(le), getLayout().format(le), le.getThrowableInformation().getThrowable());
-			else
+			}
+			else {
 				Log.v(getTagLayout().format(le), getLayout().format(le));
+			}
 			break;
 		case Level.DEBUG_INT:
-			if (le.getThrowableInformation() != null)
+			if (le.getThrowableInformation() != null) {
 				Log.d(getTagLayout().format(le), getLayout().format(le), le.getThrowableInformation().getThrowable());
-			else
+			}
+			else {
 				Log.d(getTagLayout().format(le), getLayout().format(le));
+			}
 			break;
 		case Level.INFO_INT:
-			if (le.getThrowableInformation() != null)
+			if (le.getThrowableInformation() != null) {
 				Log.i(getTagLayout().format(le), getLayout().format(le), le.getThrowableInformation().getThrowable());
-			else
+			}
+			else {
 				Log.i(getTagLayout().format(le), getLayout().format(le));
+			}
 			break;
 		case Level.WARN_INT:
-			if (le.getThrowableInformation() != null)
+			if (le.getThrowableInformation() != null) {
 				Log.w(getTagLayout().format(le), getLayout().format(le), le.getThrowableInformation().getThrowable());
-			else
+			}
+			else {
 				Log.w(getTagLayout().format(le), getLayout().format(le));
+			}
 			break;
 		case Level.ERROR_INT:
-			if (le.getThrowableInformation() != null)
+			if (le.getThrowableInformation() != null) {
 				Log.e(getTagLayout().format(le), getLayout().format(le), le.getThrowableInformation().getThrowable());
-			else
+			}
+			else {
 				Log.e(getTagLayout().format(le), getLayout().format(le));
+			}
 			break;
 		case Level.FATAL_INT:
-			if (le.getThrowableInformation() != null)
+			if (le.getThrowableInformation() != null) {
 				Log.wtf(getTagLayout().format(le), getLayout().format(le), le.getThrowableInformation().getThrowable());
-			else
+			}
+			else {
 				Log.wtf(getTagLayout().format(le), getLayout().format(le));
+			}
 			break;
 		}
 	}
