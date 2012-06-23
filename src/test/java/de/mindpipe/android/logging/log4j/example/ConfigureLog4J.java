@@ -15,6 +15,8 @@
 */  
 package de.mindpipe.android.logging.log4j.example;
 
+import java.io.File;
+
 import org.apache.log4j.Level;
 
 import android.os.Environment;
@@ -29,7 +31,7 @@ public class ConfigureLog4J {
 	public static void configure() {
 		final LogConfigurator logConfigurator = new LogConfigurator();
 		
-		logConfigurator.setFileName(Environment.getExternalStorageDirectory() + "myapp.log");
+		logConfigurator.setFileName(Environment.getExternalStorageDirectory() + File.separator + "myapp.log");
 		// Set the root log level
 		logConfigurator.setRootLevel(Level.DEBUG);
 		// Set log level of a specific logger
