@@ -19,9 +19,11 @@ import java.io.IOException;
 
 import org.apache.log4j.Layout;
 import org.apache.log4j.Level;
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 import org.apache.log4j.RollingFileAppender;
+import org.apache.log4j.helpers.LogLog;
 
 /**
  * Configures the Log4j logging framework. 
@@ -39,7 +41,9 @@ public class LogConfigurator {
 	private boolean immediateFlush = true;
 	private boolean useLogCatAppender = true;
 	private boolean useFileAppender = true;
-
+	private boolean resetConfiguration = true;
+	private boolean internalDebugging = false;
+	
 	public LogConfigurator() {
 	}
 
@@ -86,6 +90,12 @@ public class LogConfigurator {
 
 	public void configure() {
 		final Logger root = Logger.getRootLogger();
+		
+		if(isResetConfiguration()) {
+			LogManager.getLoggerRepository().resetConfiguration();
+		}
+
+		LogLog.setInternalDebugging(isInternalDebugging());
 		
 		if(isUseFileAppender()) {
 			configureFileAppender();
@@ -251,5 +261,25 @@ public class LogConfigurator {
 	 */
 	public void setUseLogCatAppender(final boolean useLogCatAppender) {
 		this.useLogCatAppender = useLogCatAppender;
+	}
+
+	public void setResetConfiguration(boolean resetConfiguration) {
+		this.resetConfiguration = resetConfiguration;
+	}
+
+	/**
+	 * Resets the log4j configuration before applying this configuration. Default is true.
+	 * @return True, if the log4j configuration should be reset before applying this configuration. 
+	 */
+	public boolean isResetConfiguration() {
+		return resetConfiguration;
+	}
+
+	public void setInternalDebugging(boolean internalDebugging) {
+		this.internalDebugging = internalDebugging;
+	}
+
+	public boolean isInternalDebugging() {
+		return internalDebugging;
 	}
 }
