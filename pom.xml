@@ -42,17 +42,24 @@
 
   <developers>
     <developer>
-      <id>roku</id>
+      <id>rolf.kulemann</id>
       <name>Rolf Kulemann</name>
       <url>https://www.xing.com/profile/Rolf_Kulemann</url>
       <roles>
-        <role>architect</role>
+        <role>owner</role>
         <role>developer</role>
       </roles>
     </developer>
     <developer>
-      <id>pabo</id>
+      <id>pascal@bockhorn.it</id>
       <name>Pascal Bockhorn</name>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>sean.robert.wagner</id>
+      <name>Sean Robert Wagner</name>
       <roles>
         <role>developer</role>
       </roles>
