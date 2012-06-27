@@ -3,7 +3,7 @@
   <ModulePrefs title="Adsense" /> 
   <Content type="html">
      <![CDATA[ 
-       <script type="text/javascript"><!--
+<script type="text/javascript"><!--
 google_ad_client = "ca-pub-9010270339648192";
 /* Google Code */
 google_ad_slot = "2672327803";
